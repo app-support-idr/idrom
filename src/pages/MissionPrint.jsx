@@ -4,6 +4,7 @@ import { base44 } from '@/api/base44Client';
 import { Button } from "@/components/ui/button";
 import { Printer, ArrowLeft, Loader2 } from 'lucide-react';
 import moment from 'moment';
+import idrLogo from '@/assets/idr-logo.svg';
 
 export default function MissionPrint() {
   const navigate = useNavigate();
@@ -58,13 +59,19 @@ export default function MissionPrint() {
           font-size: 10px;
         }
         .pm-header {
-          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
           margin-bottom: 12px;
-          padding-bottom: 8px;
-          border-bottom: 2px solid #4f46e5;
+          padding: 10px 16px;
+          background: #1e293b;
+          border-radius: 4px;
         }
-        .pm-header h1 { font-size: 18px; color: #4f46e5; margin-bottom: 4px; }
-        .pm-header p { color: #64748b; font-size: 11px; }
+        .pm-header-logo { height: 32px; width: auto; flex-shrink: 0; }
+        .pm-header-text { text-align: right; }
+        .pm-header h1 { font-size: 16px; color: #fff; margin-bottom: 2px; letter-spacing: 0.5px; }
+        .pm-header p { color: #cbd5e1; font-size: 10px; }
         .pm-section { margin-bottom: 12px; }
         .pm-section-title {
           font-size: 11px;
@@ -150,8 +157,11 @@ function PrintContent({ mission }) {
   return (
     <>
       <div className="pm-header">
-        <h1>ORDRE DE MISSION</h1>
-        <p>N° {mission.numero_om}</p>
+        <img src={idrLogo} alt="ID Rental" className="pm-header-logo" />
+        <div className="pm-header-text">
+          <h1>ORDRE DE MISSION</h1>
+          <p>N° {mission.numero_om}</p>
+        </div>
       </div>
 
       <div className="pm-section">
