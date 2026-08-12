@@ -1,0 +1,47 @@
+{
+  "name": "UserProfile",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email de l'utilisateur"
+    },
+    "user_name": {
+      "type": "string",
+      "description": "Nom complet de l'utilisateur"
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "RO",
+          "Directeur",
+          "Directeur des op\u00e9rations",
+          "DGA",
+          "RH",
+          "Admin"
+        ]
+      },
+      "description": "Liste des profils assign\u00e9s \u00e0 l'utilisateur"
+    },
+    "password": {
+      "type": "string",
+      "description": "Mot de passe de l'utilisateur"
+    },
+    "reset_token": {
+      "type": "string",
+      "description": "Token de r\u00e9initialisation de mot de passe"
+    },
+    "reset_token_expiry": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date d'expiration du token de r\u00e9initialisation"
+    }
+  },
+  "required": [
+    "user_email",
+    "user_name",
+    "profiles"
+  ]
+}

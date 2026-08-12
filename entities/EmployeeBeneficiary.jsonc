@@ -1,0 +1,36 @@
+{
+  "name": "EmployeeBeneficiary",
+  "type": "object",
+  "properties": {
+    "uploaded_by": {
+      "type": "string",
+      "description": "Email du RH qui a upload\u00e9 le fichier"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL du fichier Excel upload\u00e9"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Nom du fichier"
+    },
+    "hebergement_repas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Liste des matricules b\u00e9n\u00e9ficiaires h\u00e9bergement + repas"
+    },
+    "repas_seulement": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Liste des matricules b\u00e9n\u00e9ficiaires repas seulement"
+    }
+  },
+  "required": [
+    "uploaded_by",
+    "file_url"
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "name": "MissionOrder",
+  "type": "object",
+  "properties": {
+    "demandeur_email": {
+      "type": "string",
+      "description": "Email du demandeur"
+    },
+    "demandeur_name": {
+      "type": "string",
+      "description": "Nom du demandeur"
+    },
+    "demandeur_profile": {
+      "type": "string",
+      "description": "Profil utilis\u00e9 par le demandeur"
+    },
+    "nom_prenom": {
+      "type": "string",
+      "description": "Nom et pr\u00e9nom de la personne en mission"
+    },
+    "matricule": {
+      "type": "string",
+      "description": "Matricule de la personne en mission"
+    },
+    "fonction": {
+      "type": "string",
+      "enum": [
+        "Directeur",
+        "Responsable",
+        "Agent sp\u00e9cialis\u00e9",
+        "Agent"
+      ],
+      "description": "Fonction de la personne en mission"
+    },
+    "numero_om": {
+      "type": "string",
+      "description": "Num\u00e9ro de l'ordre de mission"
+    },
+    "lieu_destination": {
+      "type": "string",
+      "description": "Lieu de destination"
+    },
+    "motif_mission": {
+      "type": "string",
+      "description": "Motif de la mission"
+    },
+    "categorie_mission": {
+      "type": "string",
+      "enum": [
+        "Interne",
+        "Evenement(foire, salon)",
+        "Tiers \u00e0 charge"
+      ],
+      "description": "Cat\u00e9gorie de la mission"
+    },
+    "date_heure_depart": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date et heure de d\u00e9part"
+    },
+    "date_heure_arrivee": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date et heure d'arriv\u00e9e"
+    },
+    "moyen_transport": {
+      "type": "string",
+      "enum": [
+        "V\u00e9hicule",
+        "Autres"
+      ],
+      "description": "Moyen de transport"
+    },
+    "immatriculation": {
+      "type": "string",
+      "description": "Num\u00e9ro d'immatriculation du v\u00e9hicule"
+    },
+    "avec_couchette": {
+      "type": "boolean",
+      "default": false,
+      "description": "Avec couchette (RG3)"
+    },
+    "type_transport_autre": {
+      "type": "string",
+      "description": "Type de transport si Autres"
+    },
+    "condition_particuliere": {
+      "type": "string",
+      "description": "Condition particuli\u00e8re de la mission"
+    },
+    "observation": {
+      "type": "string",
+      "description": "Observation"
+    },
+    "pieces_justificatives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs des pi\u00e8ces justificatives"
+    },
+    "regularisation": {
+      "type": "string",
+      "enum": [
+        "OUI",
+        "NON"
+      ],
+      "description": "R\u00e9gularisation"
+    },
+    "a_refacturer": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indique si la mission est \u00e0 refacturer"
+    },
+    "client_refacturation": {
+      "type": "string",
+      "description": "Client \u00e0 refacturer"
+    },
+    "statut_refacturation": {
+      "type": "string",
+      "enum": [
+        "A faire",
+        "Envoy\u00e9",
+        "Annul\u00e9"
+      ],
+      "default": "A faire",
+      "description": "Statut de la refacturation"
+    },
+    "refacturation_annulee_par": {
+      "type": "string",
+      "description": "Personne qui a annul\u00e9 la refacturation"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "En attente",
+        "En cours de validation",
+        "Valid\u00e9e",
+        "Rejet\u00e9e",
+        "Demande de modification"
+      ],
+      "default": "En attente",
+      "description": "Statut de la demande"
+    },
+    "current_validator_level": {
+      "type": "string",
+      "enum": [
+        "RO",
+        "Directeur",
+        "Directeur des op\u00e9rations",
+        "DGA",
+        "RH"
+      ],
+      "description": "Niveau actuel de validation"
+    },
+    "validation_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "validator_name": {
+            "type": "string"
+          },
+          "validator_profile": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Historique des validations"
+    },
+    "indemnites_data": {
+      "type": "object",
+      "description": "Donn\u00e9es calcul\u00e9es des indemnit\u00e9s"
+    },
+    "total_indemnites": {
+      "type": "number",
+      "description": "Total des indemnit\u00e9s"
+    }
+  },
+  "required": [
+    "demandeur_email",
+    "nom_prenom",
+    "matricule",
+    "fonction",
+    "numero_om",
+    "lieu_destination",
+    "motif_mission",
+    "categorie_mission",
+    "date_heure_depart",
+    "date_heure_arrivee",
+    "regularisation",
+    "moyen_transport"
+  ]
+}
