@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Proxy des appels API vers le backend Base44
+# (reproduit en production le proxy /api que @base44/vite-plugin
+# fournit uniquement en local via `npm run dev`)
+[[redirects]]
+  from = "/api/*"
+  to = "https://idrom.base44.app/api/:splat"
+  status = 200
+  force = true
+
+# Toutes les autres routes servent index.html (SPA React Router)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
